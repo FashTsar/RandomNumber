@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class General extends JFrame {
     JButton b1, b2;
-    JTextField t1, t2;
+    JTextField t1, t2, t3;
     JLabel l1, l2, l3;
     int x, y;
 
@@ -23,6 +23,7 @@ public class General extends JFrame {
         b1 = new JButton("Очистить");
         b2 = new JButton("Посчитать");
         l3 = new JLabel("");
+        t3 = new JTextField(5);
         add(l1);
         add(t1);
         add(l2);
@@ -41,7 +42,12 @@ public class General extends JFrame {
                     x = Integer.parseInt(t1.getText());
                     y = Integer.parseInt(t2.getText());
                     int r = x + rnd.nextInt(y - x + 1);
-                    String res = "Рандомное число = " + r;
+                    String res = "Рандомное число  =";
+                    String resint = ""+r;
+                    t3.setText(resint);
+                    t3.setEditable(false);
+                    add(t3);
+                    t3.setVisible(true);
                     l3.setText(res);
                 }
 
@@ -49,6 +55,7 @@ public class General extends JFrame {
                     t1.setText("");
                     t2.setText("");
                     l3.setText("");
+                    t3.setVisible(false);
                 }
             }catch (Exception ex){ JOptionPane.showMessageDialog(null, "Поля заполнены неверно!!!"); }
         }
